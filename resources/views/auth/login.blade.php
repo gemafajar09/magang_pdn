@@ -12,7 +12,7 @@
 <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
   <div class="w-4/5 bg-white px-6 pb-8 pt-10 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
     <div class="mx-auto max-w-md">
-      <form action="{{route('login')}}" method="post">
+      <form action="{{route('login.post')}}" method="post">
         @csrf
         <div class="flex justify-center">
           Log In

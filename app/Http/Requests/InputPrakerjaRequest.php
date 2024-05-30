@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class InputPrakerjaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,20 +24,10 @@ class UserRequest extends FormRequest
         return [
             'nama' => 'required',
             'email' => 'required|email',
-            'telpon' => 'required|min:12',
-            'foto' => 'required|mimes:jpg,png'
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'nama.required' => 'Data Harus Di Isikan',
-            'email.required' => 'Email Tidak Boleh Kosong',
-            'email.email' => 'Pastikan Yang DImasukan Berupa Email',
-            'telpon.required' => 'Telpon Tidak Boleh Kosong',
-            'telpon.min' => 'Telpon minimal 12 digit',
-            'foto.mimes' => 'Pastikan Format File Benar',
+            'telpon' => 'required|min:12|max:15',
+            'alamat' => 'required',
+            'pendidikan_terakhir' => 'required',
+            'foto' => 'required|mimes:png,jpg,jpeg',
         ];
     }
 }

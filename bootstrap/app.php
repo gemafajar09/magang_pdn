@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\GuestUser;
+use App\Http\Middleware\LoginUser;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -11,7 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+
+        $middleware->alias([
+            'auth' => LoginUser::class,
+            'guests' => GuestUser::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
